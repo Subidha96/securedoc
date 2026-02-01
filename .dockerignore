@@ -1,0 +1,8 @@
+.next/
+.nuxt/
+dist/
+build/
+*.log
+node_modules/
+.env
+.env.local
