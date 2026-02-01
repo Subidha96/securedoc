@@ -38,7 +38,41 @@ npm run build
 npm run preview
 ```
 
-## Architecture Overview
+## Docker Setup
+
+### Build Docker Image Locally
+
+```bash
+docker build -t securedoc:latest .
+```
+
+### Run with Docker
+
+```bash
+docker run -p 3000:3000 securedoc:latest
+```
+
+Open your browser to `http://localhost:3000`
+
+### Using Pre-built Docker Image
+
+Pull and run the latest pre-built image from GitHub Container Registry:
+
+```bash
+docker pull ghcr.io/subidha96/securedoc:latest
+docker run -p 3000:3000 ghcr.io/subidha96/securedoc:latest
+```
+
+### Release Versions
+
+Tagged release images are available:
+
+```bash
+docker pull ghcr.io/subidha96/securedoc:v1.0.0
+docker run -p 3000:3000 ghcr.io/subidha96/securedoc:v1.0.0
+```
+
+
 
 - **Root CA Initialization**: System initializes with an Internal Root CA on startup
 - **Identity Enrollment**: Users can enroll as doctors or patients with cryptographic key pairs
