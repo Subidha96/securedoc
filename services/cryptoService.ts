@@ -1,9 +1,9 @@
 
 import { Certificate, KeyPair, Role } from '../types';
 
-// Import crypto for Node.js environments (Vitest with 'node' environment)
-import { webcrypto } from 'node:crypto';
-const crypto = (globalThis.crypto || webcrypto) as Crypto;
+// Use globalThis.crypto (available in modern browsers and Node.js 16+)
+// In Vitest with 'node' environment, globalThis.crypto is available
+const crypto = globalThis.crypto as unknown as Crypto;
 
 // Module-level maps to keep CryptoKey objects tied to exported key strings
 const privateKeyStore: Record<string, { enc?: CryptoKey; sign?: CryptoKey }> = {};
